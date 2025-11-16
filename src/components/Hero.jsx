@@ -3,28 +3,32 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import IconScroller from "../sections/IconScroller.jsx";
 import FeatureBox from "../sections/FeatureBox.jsx";
 import "../assets/styles/hero.css";
+import hero1 from "../assets/images/hero1.png";
+import hero2 from "../assets/images/hero2.webp";
+import hero3 from "../assets/images/hero3.webp";
+import hero4 from "../assets/images/hero4.webp";
 
 export default function Hero() {
   const slides = [
     {
       title: "Accept Payments with Ease",
       desc: "Simple, secure, and fast payments for your business.",
-      img: "../assets/images/hero1.png",
+      img: hero1,
     },
     {
       title: "Grow Your Online Business",
       desc: "Tools that help you boost conversion and reduce drop-offs.",
-      img: "../assets/images/hero2.webp",
+      img: hero2,
     },
     {
       title: "Fast Settlements",
       desc: "Get your payments faster with our instant settlement feature.",
-      img: "../assets/images/hero3.webp",
+      img: hero3,
     },
     {
       title: "Smart Dashboard",
       desc: "Track, analyse, and manage all payments in one place.",
-      img: "../assets/images/hero4.webp",
+      img: hero4,
     },
   ];
 
