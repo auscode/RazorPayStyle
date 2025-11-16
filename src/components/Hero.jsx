@@ -9,22 +9,22 @@ export default function Hero() {
     {
       title: "Accept Payments with Ease",
       desc: "Simple, secure, and fast payments for your business.",
-      img: "/src/assets/images/hero1.png",
+      img: "../assets/images/hero1.png",
     },
     {
       title: "Grow Your Online Business",
       desc: "Tools that help you boost conversion and reduce drop-offs.",
-      img: "/src/assets/images/hero2.webp",
+      img: "../assets/images/hero2.webp",
     },
     {
       title: "Fast Settlements",
       desc: "Get your payments faster with our instant settlement feature.",
-      img: "/src/assets/images/hero3.webp",
+      img: "../assets/images/hero3.webp",
     },
     {
       title: "Smart Dashboard",
       desc: "Track, analyse, and manage all payments in one place.",
-      img: "/src/assets/images/hero4.webp",
+      img: "../assets/images/hero4.webp",
     },
   ];
 
