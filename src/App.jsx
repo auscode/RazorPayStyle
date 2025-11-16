@@ -1,9 +1,29 @@
-import "./App.css";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import ProductHighlights from "./components/ProductHighlights";
+import Footer from "./components/Footer";
+import PoweringIndustries from "./components/PoweringIndustries";
+import Reviews from "./components/Reviews";
+import GlobalPaymentsSection from "./sections/GlobalPaymentsSection";
+import HorizonSection from "./sections/HorizonSection";
+import BankingSection from "./sections/BankingSection";
 
 function App() {
   return (
     <>
-      <h1 class="text-3xl font-bold">Hello world!</h1>
+      <div className="w-full">
+        <Navbar />
+        <Hero />
+        <BankingSection />
+        <Features />
+        <PoweringIndustries />
+        <GlobalPaymentsSection />
+        <Reviews />
+        <ProductHighlights />
+        <HorizonSection />
+        <Footer />
+      </div>
     </>
   );
 }
