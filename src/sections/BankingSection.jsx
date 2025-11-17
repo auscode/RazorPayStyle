@@ -10,29 +10,30 @@ export default function BankingSection() {
   const services = [
     {
       icon: HiShieldCheck,
-      title: "Blockchain-Powered Encryption",
+      title: "Advanced Fraud & Risk Protection",
       description:
-        "Military-grade security protocols protecting your digital assets with distributed ledger technology",
+        "Multi-layer security and intelligent fraud monitoring keep your transactions safe and compliant at all times.",
     },
     {
       icon: HiTrendingUp,
-      title: "AI-Driven Investment Analytics",
+      title: "Real-Time Financial Insights",
       description:
-        "Machine learning algorithms analyze market trends in real-time to optimize your portfolio performance",
+        "Smart analytics help you track cash flow, settlements, and payouts with complete visibility and accuracy.",
     },
     {
       icon: HiLightningBolt,
-      title: "Instant Cross-Border Payments",
+      title: "Instant Global Payouts",
       description:
-        "Lightning-fast international transactions with zero fees using our proprietary settlement network",
+        "Send money across 195+ countries in minutes with fast, reliable, and seamless settlement infrastructure.",
     },
     {
       icon: HiLockClosed,
-      title: "Quantum-Resistant Security",
+      title: "Bank-Grade Encryption",
       description:
-        "Next-generation cryptographic systems designed to withstand future quantum computing threats",
+        "Your data and payments are protected with enterprise-grade encryption and secure authentication systems.",
     },
   ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -40,19 +41,18 @@ export default function BankingSection() {
         {/* Header Section */}
         <div className="text-center mb-20">
           <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            We Tried To Provide You
+            Banking Built for Growing
             <br />
-            With All Global Banking
+            Businesses Across the World
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              Services
+              Secure. Fast. Reliable.
             </span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            We blend fintary banking infrastructors in Software That You Have
-            Access To A Comprehensive Range Of Global Banking Services. Our
-            Ultra-Fast, Secure, And Transparent Digital Ecosystem Is Built On
-            Advanced Technologies Like Quantum Blockchain Of New Platform
+            LaZerPay combines modern banking infrastructure with powerful software tools,
+            giving you access to seamless payments, instant payouts, connected accounts,
+            and enterprise-grade security — all in one unified platform.
           </p>
           <button className="bg-gray-900 text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl">
             Learn More
@@ -98,7 +98,7 @@ export default function BankingSection() {
         <div className="mt-20 text-center">
           <div className="inline-block bg-white/60 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg border border-gray-100">
             <p className="text-sm text-gray-600 mb-2">
-              Trusted by over 10,000+ businesses worldwide
+              Trusted by 10,000+ businesses of every size — startups, enterprises, and global brands
             </p>
             <div className="flex items-center justify-center gap-2">
               <div className="flex -space-x-2">
