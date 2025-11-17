@@ -12,22 +12,22 @@ export default function Hero() {
   const slides = [
     {
       title: "Accept Payments with Ease",
-      desc: "Simple, secure, and fast payments for your business.",
+      desc: "Enable fast, secure online payments with a seamless checkout that works anywhere.",
       img: hero1,
     },
     {
       title: "Grow Your Online Business",
-      desc: "Tools that help you boost conversion and reduce drop-offs.",
+      desc: "Boost conversions with smart payment tools designed to reduce drop-offs and increase revenue.",
       img: hero2,
     },
     {
-      title: "Fast Settlements",
-      desc: "Get your payments faster with our instant settlement feature.",
+      title: "Fast Settlements to Banks",
+      desc: "Access your funds instantly with reliable settlements delivered directly to your bank.",
       img: hero3,
     },
     {
-      title: "Smart Dashboard",
-      desc: "Track, analyse, and manage all payments in one place.",
+      title: "Smart Dashboard for Efficiency",
+      desc: "Monitor payments in real time with a powerful dashboard built for clarity and control.",
       img: hero4,
     },
   ];
