@@ -1,18 +1,19 @@
+import { Suspense,lazy } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Features from "./components/Features";
-import ProductHighlights from "./components/ProductHighlights";
-import Footer from "./components/Footer";
-import PoweringIndustries from "./components/PoweringIndustries";
-import Reviews from "./components/Reviews";
-import GlobalPaymentsSection from "./sections/GlobalPaymentsSection";
-import HorizonSection from "./sections/HorizonSection";
 import BankingSection from "./sections/BankingSection";
+const Features = lazy(() => import("./components/Features"));
+const PoweringIndustries = lazy(() => import("./components/PoweringIndustries"));
+const GlobalPaymentsSection = lazy(() => import("./sections/GlobalPaymentsSection"));
+const Reviews = lazy(() => import("./components/Reviews"));
+const ProductHighlights = lazy(() => import("./components/ProductHighlights"));
+const HorizonSection = lazy(() => import("./sections/HorizonSection"));
+const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   return (
     <>
-      <div className="w-full">
+      <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
         <Navbar />
         <Hero />
         <BankingSection />
@@ -23,7 +24,7 @@ function App() {
         <ProductHighlights />
         <HorizonSection />
         <Footer />
-      </div>
+      </Suspense>
     </>
   );
 }

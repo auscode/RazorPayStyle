@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
-import IconScroller from "../sections/IconScroller.jsx";
-import FeatureBox from "../sections/FeatureBox.jsx";
+const IconScroller = lazy(() => import("../sections/IconScroller.jsx"));
+const FeatureBox = lazy(() => import("../sections/FeatureBox.jsx"));
 import "../assets/styles/hero.css";
 import hero1 from "../assets/images/hero1.png";
 import hero2 from "../assets/images/hero2.webp";

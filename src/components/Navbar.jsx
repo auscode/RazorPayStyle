@@ -1,9 +1,10 @@
-import { useState } from "react";
-import MegaMenu from "../sections/MegaMenu";
+import { useState, lazy } from "react";
+const MegaMenu = lazy(() => import("../sections/MegaMenu"));
 import { HiArrowSmRight, HiMenu, HiX, HiLightningBolt } from "react-icons/hi";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
 
   const menus = [
     "Payments",
@@ -30,6 +31,8 @@ export default function Navbar() {
             <li
               key={i}
               className="relative group py-4 cursor-pointer hover:text-blue-600"
+               onMouseEnter={() => setActiveMenu(i)}
+               onMouseLeave={() => setActiveMenu(null)}
             >
               <span>{menu}</span>
 
@@ -37,7 +40,7 @@ export default function Navbar() {
               <div className="absolute top-full left-0 w-full h-4 bg-transparent hidden group-hover:block"></div>
 
               {/* Mega Menu */}
-              <MegaMenu />
+              {activeMenu === i && <MegaMenu />}
             </li>
           ))}
         </ul>
@@ -45,7 +48,7 @@ export default function Navbar() {
         {/* Sign In + Mobile Button */}
         <div className="flex gap-3 items-center">
           {/* Sign In Button + Arrow */}
-          <button className="sm:flex hidden items-center gap-1 border-2 bodered-blue-600 text-blue-600 px-5 py-2 rounded-md font-medium hover:bg-blue-700 transition">
+          <button className="sm:flex hidden items-center gap-1 border-2 text-blue-600 px-5 py-2 rounded-md font-medium hover:bg-blue-700 hover:text-white transition">
             Login
             <HiArrowSmRight size={18} />
           </button>
