@@ -1,4 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+1;
+import featuresImg1 from "../assets/images/scroll-s1.jpeg";
+import featuresImg2 from "../assets/images/scroll-s2.jpeg";
+import featuresImg3 from "../assets/images/scroll-s3.jpeg";
+import featuresImg4 from "../assets/images/scroll-s4.jpeg";
+import featuresImg5 from "../assets/images/scroll-s5.jpeg";
 
 export default function Features() {
   const [activeCard, setActiveCard] = useState(0);
@@ -14,8 +20,7 @@ export default function Features() {
       title: "Accept Payments",
       subtitle: "Instant Settlements",
       description: "Get customer payments in your bank account instantly",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+      image: featuresImg1,
       color: "from-blue-500 to-cyan-500",
     },
     {
@@ -23,8 +28,7 @@ export default function Features() {
       title: "Make Payouts",
       subtitle: "Bulk Transfers",
       description: "Send payments to multiple vendors efficiently",
-      image:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
+      image: featuresImg2,
       color: "from-purple-500 to-pink-500",
     },
     {
@@ -32,8 +36,7 @@ export default function Features() {
       title: "Start Business Banking",
       subtitle: "Corporate Accounts",
       description: "Open business accounts with zero balance requirement",
-      image:
-        "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=600&h=400&fit=crop",
+      image: featuresImg3,
       color: "from-green-500 to-emerald-500",
     },
     {
@@ -41,8 +44,7 @@ export default function Features() {
       title: "Automate Payroll",
       subtitle: "Employee Management",
       description: "Streamline salary disbursement and compliance",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+      image: featuresImg4,
       color: "from-orange-500 to-red-500",
     },
     {
@@ -50,8 +52,7 @@ export default function Features() {
       title: "Credit & Loans",
       subtitle: "LaZerPayX Corporate Cards",
       description: "Turn SaaS, cloud and marketing spends into real savings",
-      image:
-        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop",
+      image: featuresImg5,
       color: "from-indigo-500 to-blue-500",
     },
   ];
