@@ -197,25 +197,24 @@ const HorizonSection = () => {
                     <div
                       className={`${item.color} w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-lg`}
                     >
-                      <Icon className="text-white w-5 h-5 sm:w-7 sm:h-7" />
+                      <Icon className="text-white w-5 h-5 sm:w-7 sm:h-7 z-0" />
                     </div>
 
                     {/* Tooltip */}
                     {isHovered && (
                       <div
-                        className="absolute bg-white p-3 rounded-lg border-2 border-blue-500 shadow-xl animate-fadeIn pointer-events-none whitespace-nowrap"
+                        className="fixed bg-white p-3 rounded-lg border-2 border-blue-500 shadow-xl animate-fadeIn z-[9999] pointer-events-none"
                         style={{
                           width: screenWidth < 640 ? "144px" : "192px",
-                          zIndex: 9999,
-                          top: "-80px",
                           left: "50%",
+                          top: "20%",
                           transform: "translateX(-50%)",
                         }}
                       >
-                        <h3 className="font-bold text-blue-900 text-xs sm:text-lg whitespace-normal">
+                        <h3 className="font-bold text-blue-900 text-xs sm:text-lg">
                           {item.name}
                         </h3>
-                        <p className="text-blue-600 text-xs sm:text-sm whitespace-normal">
+                        <p className="text-blue-600 text-xs sm:text-sm">
                           {item.data}
                         </p>
                       </div>
