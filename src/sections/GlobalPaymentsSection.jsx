@@ -5,10 +5,10 @@ export default function GlobalPaymentsSection() {
   const [activeCountry, setActiveCountry] = useState(0);
 
   const countries = [
-    { flag: "🇮🇳", top: "45%", left: "15%", delay: 0 },
-    { flag: "🇬🇧", top: "25%", left: "35%", delay: 200 },
-    { flag: "🇺🇸", top: "20%", right: "-10%", delay: 400 },
-    { flag: "🇱🇹", top: "50%", right: "-10%", delay: 600 },
+    { flag: "\uD83C\uDDEE\uD83C\uDDF3", top: "45%", left: "15%", delay: 0 }, // 🇮🇳 India
+    { flag: "\uD83C\uDDEC\uD83C\uDDE7", top: "25%", left: "35%", delay: 200 }, // 🇬🇧 UK
+    { flag: "\uD83C\uDDFA\uD83C\uDDF8", top: "20%", right: "-10%", delay: 400 }, // 🇺🇸 USA
+    { flag: "\uD83C\uDDF1\uD83C\uDDF9", top: "50%", right: "-10%", delay: 600 }, // 🇱🇹 Lithuania
   ];
 
   useEffect(() => {
