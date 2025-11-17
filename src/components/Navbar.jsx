@@ -1,10 +1,20 @@
 import { useState, lazy } from "react";
+import { megaMenuData } from "../data/menuData";
 const MegaMenu = lazy(() => import("../sections/MegaMenu"));
-import { HiArrowSmRight, HiMenu, HiX, HiLightningBolt } from "react-icons/hi";
+import {
+  HiArrowSmRight,
+  HiMenu,
+  HiX,
+  HiLightningBolt,
+  HiChevronRight,
+  HiChevronDown,
+} from "react-icons/hi";
+import { HiOutlineCreditCard, HiOutlineLink } from "react-icons/hi2";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
+  const [openSection, setOpenSection] = useState(0);
 
   const menus = [
     "Payments",
@@ -83,7 +93,7 @@ export default function Navbar() {
           </div>
 
           {/* Login */}
-          <button className="sm:flex hidden items-center gap-1 border-2 text-blue-600 px-5 py-2 rounded-md font-medium hover:bg-blue-700 hover:text-white transition">
+          <button className="flex items-center gap-1 border-2 text-blue-600 px-5 py-2 rounded-md font-medium hover:bg-blue-700 hover:text-white transition">
             Login
             <HiArrowSmRight size={18} />
           </button>
@@ -100,17 +110,52 @@ export default function Navbar() {
 
       {/* Mobile Menu Panel */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white shadow-md border-t">
-          <ul className="flex flex-col text-gray-700 font-medium p-4 gap-4">
-            {menus.map((menu, i) => (
-              <li
-                key={i}
-                className="py-2 border-b cursor-pointer hover:text-blue-600"
+        <div className="lg:hidden bg-white shadow-md p-4 space-y-7">
+          {/* Country Selector */}
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2 text-lg font-medium">
+              🇮🇳 India
+            </div>
+            {/* <HiChevronRight className="text-xl text-blue-600" /> */}
+          </div>
+
+          {/* MOBILE MEGAMENU */}
+          {megaMenuData.map((section, i) => (
+            <div key={i} className="pb-3">
+              {/* Section Header */}
+              <div
+                className="flex justify-between items-center py-2 cursor-pointer"
+                onClick={() => setOpenSection(openSection === i ? null : i)}
               >
-                {menu}
-              </li>
-            ))}
-          </ul>
+                <h3 className="text-sm font-semibold text-gray-800">
+                  {section.title}
+                </h3>
+
+                {openSection === i ? (
+                  <HiChevronDown className="text-xl text-blue-600" />
+                ) : (
+                  <HiChevronRight className="text-xl text-blue-600" />
+                )}
+              </div>
+
+              {/* Section Items */}
+              {openSection === i && (
+                <div className="flex flex-col gap-4 mt-3 pl-2">
+                  {section.items.map((item, j) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={j} className="flex items-center gap-3">
+                        <Icon className="text-blue-600 text-xl" />
+                        <span className="text-gray-800 text-base">
+                          {item.label}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
     </nav>
