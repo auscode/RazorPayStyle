@@ -43,39 +43,33 @@ const reviews = [
       "The speed, security, and consistency of LaZerPay make it the best choice for scaling businesses.",
   },
 ];
+
 export default function Reviews() {
   const [offset, setOffset] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef(null);
 
-  // Triple the array for seamless looping
   const tripleReviews = [...reviews, ...reviews, ...reviews];
 
   useEffect(() => {
-    const speed = 0.5; // pixels per frame
-    let animationFrame;
+    const speed = 0.5;
+    let frame;
 
     const animate = () => {
       if (!isPaused) {
         setOffset((prev) => {
-          const cardWidth = 380; // 352px width + 28px gap
-          const singleSetWidth = reviews.length * cardWidth;
+          const cardWidth = 380;
+          const oneSet = reviews.length * cardWidth;
 
-          // When we've scrolled past one complete set, reset to show the second set
-          // This creates the infinite illusion
-          if (prev >= singleSetWidth) {
-            return prev - singleSetWidth;
-          }
+          if (prev >= oneSet) return prev - oneSet;
           return prev + speed;
         });
       }
-
-      animationFrame = requestAnimationFrame(animate);
+      frame = requestAnimationFrame(animate);
     };
 
-    animationFrame = requestAnimationFrame(animate);
-
-    return () => cancelAnimationFrame(animationFrame);
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
   }, [isPaused]);
 
   return (
@@ -85,25 +79,45 @@ export default function Reviews() {
           <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             LaZerPay grows with <span className="text-blue-500">you!</span>
           </h2>
-          <p className="text-sm font-medium  text-gray-600">1,50,000+ Businesses</p>
+          <p className="text-sm font-medium text-gray-600">
+            1,50,000+ Businesses
+          </p>
         </div>
       </div>
+
       <div ref={containerRef} className="overflow-hidden py-4">
         <div
           className="flex gap-12"
-          style={{
-            transform: `translateX(-${offset}px)`,
-            transition: "transform",
-          }}
+          style={{ transform: `translateX(-${offset}px)` }}
         >
           {tripleReviews.map((review, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[352px] h-[480px] relative group cursor-pointer overflow-hidden rounded-lg"
-               onMouseEnter={() => setIsPaused(true)}
-               onMouseLeave={() => setIsPaused(false)} 
+              className="flex-shrink-0 w-[352px] h-[480px] relative cursor-pointer overflow-hidden rounded-lg"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
             >
-              <div className="flip-card ">
+              {/* MOBILE VERSION (NO FLIP) */}
+              <div className="md:hidden w-full h-full bg-white flex flex-col">
+                <div className="h-[60%] w-full">
+                  <img
+                    src={review.image}
+                    className="w-full h-full object-cover object-top rounded-t-lg grayscale"
+                  />
+                </div>
+
+                <div className="h-1/2 p-4 flex flex-col justify-center">
+                  <h3 className="text-xl font-bold">{review.name}</h3>
+                  <p className="text-gray-500 text-sm mb-3">{review.role}</p>
+
+                  <p className="text-gray-800 text-sm leading-relaxed">
+                    {review.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* DESKTOP VERSION (FLIP CARD) */}
+              <div className="hidden md:block flip-card">
                 <div className="flip-inner">
                   <div className="flip-front grayscale">
                     <img
@@ -117,11 +131,13 @@ export default function Reviews() {
                       <p className="text-gray-200 text-sm">{review.role}</p>
                     </div>
                   </div>
-                  <div className="flip-back shadow-lg flex flex-col">
-                    <p className="text-center text-sm md:text-lg lg:text-2xl font-bold p-4">
+
+                  <div className="flip-back shadow-lg flex flex-col justify-center items-center">
+                    <p className="text-center text-xl font-semibold px-6">
                       {review.description}
                     </p>
-                    <p className="font-bold text-xl mt-5">{review.name}</p>
+
+                    <p className="font-bold text-lg mt-4">{review.name}</p>
                     <p className="text-sm">{review.role}</p>
                   </div>
                 </div>
