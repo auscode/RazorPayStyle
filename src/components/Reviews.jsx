@@ -45,6 +45,7 @@ const reviews = [
 ];
 export default function Reviews() {
   const [offset, setOffset] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef(null);
 
   // Triple the array for seamless looping
@@ -55,17 +56,19 @@ export default function Reviews() {
     let animationFrame;
 
     const animate = () => {
-      setOffset((prev) => {
-        const cardWidth = 380; // 352px width + 28px gap
-        const singleSetWidth = reviews.length * cardWidth;
+      if (!isPaused) {
+        setOffset((prev) => {
+          const cardWidth = 380; // 352px width + 28px gap
+          const singleSetWidth = reviews.length * cardWidth;
 
-        // When we've scrolled past one complete set, reset to show the second set
-        // This creates the infinite illusion
-        if (prev >= singleSetWidth) {
-          return prev - singleSetWidth;
-        }
-        return prev + speed;
-      });
+          // When we've scrolled past one complete set, reset to show the second set
+          // This creates the infinite illusion
+          if (prev >= singleSetWidth) {
+            return prev - singleSetWidth;
+          }
+          return prev + speed;
+        });
+      }
 
       animationFrame = requestAnimationFrame(animate);
     };
@@ -73,13 +76,13 @@ export default function Reviews() {
     animationFrame = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  }, [isPaused]);
 
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             LaZerPay grows with <span className="text-blue-500">you!</span>
           </h2>
           <p className="text-xl text-gray-600">1,50,000+ Businesses</p>
@@ -97,6 +100,8 @@ export default function Reviews() {
             <div
               key={i}
               className="flex-shrink-0 w-[352px] h-[480px] relative group cursor-pointer overflow-hidden rounded-lg"
+               onMouseEnter={() => setIsPaused(true)}
+               onMouseLeave={() => setIsPaused(false)} 
             >
               <div className="flip-card ">
                 <div className="flip-inner">
@@ -112,10 +117,12 @@ export default function Reviews() {
                       <p className="text-gray-200 text-sm">{review.role}</p>
                     </div>
                   </div>
-                  <div className="flip-back shadow-lg">
+                  <div className="flip-back shadow-lg flex flex-col">
                     <p className="text-center text-sm p-4">
                       {review.description}
                     </p>
+                    <p className="font-bold text-xl mb-1">{review.name}</p>
+                    <p className="text-sm">{review.role}</p>
                   </div>
                 </div>
               </div>
