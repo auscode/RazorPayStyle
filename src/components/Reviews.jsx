@@ -75,11 +75,11 @@ export default function Reviews() {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+        <div className="flex flex-col md:flex-row justify-between items-left md:items-center  mb-12">
+          <h2 className="text-5xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             LaZerPay grows with <span className="text-blue-500">you!</span>
           </h2>
-          <p className="text-sm font-medium text-gray-600">
+          <p className="text-lg md:text-xl font-bold text-gray-500">
             1,50,000+ Businesses
           </p>
         </div>
