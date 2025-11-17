@@ -40,7 +40,7 @@ export default function BankingSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Banking Built for Growing
             <br />
             Businesses Across the World
