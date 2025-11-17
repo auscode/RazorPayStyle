@@ -31,7 +31,7 @@ const HorizonSection = () => {
       name: "Global Reach",
       data: "180+ countries served",
       angle: 165,
-      radius: 280,
+      radius: 200,
       color: "bg-blue-500",
     },
     {
@@ -40,7 +40,7 @@ const HorizonSection = () => {
       name: "Instant Transfer",
       data: "< 2 second processing",
       angle: 145,
-      radius: 320,
+      radius: 240,
       color: "bg-blue-600",
     },
     {
@@ -49,7 +49,7 @@ const HorizonSection = () => {
       name: "Payments",
       data: "$2.5T processed annually",
       angle: 125,
-      radius: 360,
+      radius: 280,
       color: "bg-blue-700",
     },
     {
@@ -58,7 +58,7 @@ const HorizonSection = () => {
       name: "Security",
       data: "256-bit encryption",
       angle: 105,
-      radius: 300,
+      radius: 220,
       color: "bg-blue-500",
     },
     {
@@ -67,7 +67,7 @@ const HorizonSection = () => {
       name: "Digital Banking",
       data: "150M+ active users",
       angle: 85,
-      radius: 380,
+      radius: 300,
       color: "bg-blue-600",
     },
     {
@@ -76,7 +76,7 @@ const HorizonSection = () => {
       name: "Mobile Wallet",
       data: "500M+ transactions/day",
       angle: 65,
-      radius: 340,
+      radius: 260,
       color: "bg-blue-700",
     },
     {
@@ -85,7 +85,7 @@ const HorizonSection = () => {
       name: "Digital Wallet",
       data: "99.9% uptime guaranteed",
       angle: 45,
-      radius: 310,
+      radius: 230,
       color: "bg-blue-500",
     },
     {
@@ -94,7 +94,7 @@ const HorizonSection = () => {
       name: "Investments",
       data: "$1.8T AUM",
       angle: 25,
-      radius: 370,
+      radius: 290,
       color: "bg-blue-600",
     },
     {
@@ -103,16 +103,16 @@ const HorizonSection = () => {
       name: "Insurance",
       data: "95% claim approval rate",
       angle: 15,
-      radius: 290,
+      radius: 210,
       color: "bg-blue-700",
     },
   ];
 
   // ✔ Responsive radius calculation
   const getResponsiveRadius = (base) => {
-    if (screenWidth < 480) return base * 0.45; // Mobile S
-    if (screenWidth < 640) return base * 0.55; // Mobile M-L
-    if (screenWidth < 768) return base * 0.65; // Tablets small
+    if (screenWidth < 480) return base * 0.55; // Mobile S
+    if (screenWidth < 640) return base * 0.65; // Mobile M-L
+    if (screenWidth < 768) return base * 0.35; // Tablets small
     if (screenWidth < 1024) return base * 0.8; // Tablets large
     return base;
   };
@@ -127,7 +127,10 @@ const HorizonSection = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-white to-blue-50 py-20 px-4 overflow-hidden">
+    <div
+      className="w-full bg-gradient-to-b from-white to-blue-50 py-20 px-4"
+      style={{ overflow: "visible" }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -140,7 +143,10 @@ const HorizonSection = () => {
         </div>
 
         {/* ORBIT */}
-        <div className="relative w-full h-[350px] sm:h-[450px] md:h-[600px] flex items-end justify-center">
+        <div
+          className="relative w-full h-[350px] sm:h-[450px] md:h-[600px] flex items-end justify-center overflow-visible"
+          style={{ overflow: "visible" }}
+        >
           {/* Semi Circles */}
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
             {[1, 2, 3, 4, 5].map((circle) => (
@@ -166,6 +172,10 @@ const HorizonSection = () => {
               const Icon = item.icon;
               const isHovered = hoveredItem === item.id;
               const pos = getPosition(item.angle, item.radius);
+
+              // Determine tooltip position based on angle
+              const isLeftSide = item.angle > 90;
+              const isTopArea = item.angle > 120 || item.angle < 60;
 
               return (
                 <div
@@ -193,18 +203,19 @@ const HorizonSection = () => {
                     {/* Tooltip */}
                     {isHovered && (
                       <div
-                        className="fixed bg-white p-3 rounded-lg border-2 border-blue-500 shadow-xl animate-fadeIn z-[9999] pointer-events-none"
+                        className="absolute bg-white p-3 rounded-lg border-2 border-blue-500 shadow-xl animate-fadeIn pointer-events-none whitespace-nowrap"
                         style={{
                           width: screenWidth < 640 ? "144px" : "192px",
+                          zIndex: 9999,
+                          top: "-80px",
                           left: "50%",
-                          top: "20%",
                           transform: "translateX(-50%)",
                         }}
                       >
-                        <h3 className="font-bold text-blue-900 text-xs sm:text-lg">
+                        <h3 className="font-bold text-blue-900 text-xs sm:text-lg whitespace-normal">
                           {item.name}
                         </h3>
-                        <p className="text-blue-600 text-xs sm:text-sm">
+                        <p className="text-blue-600 text-xs sm:text-sm whitespace-normal">
                           {item.data}
                         </p>
                       </div>
