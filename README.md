@@ -12,6 +12,10 @@ This project replicates a polished, enterprise-grade design experience similar t
 * Footer with Legal & Certification Info
 
 ---
+# 📸 Landing Page Preview
+<img src="./LandingPage.png" alt="LaZerPay Landing Page" width="100%">
+
+----
 
 # Live Demo
 
@@ -98,6 +102,7 @@ Runs a local preview server for the built project.
 ```
 RazorPayStyle/
 ├── README.md
+├── LandingPage.png
 ├── index.html
 ├── package.json
 ├── package-lock.json
@@ -113,7 +118,8 @@ RazorPayStyle/
     │
     ├── assets/
     │   ├── images/
-    │   └── icon/
+    │   ├── icon/
+    │   └── styles/
     │
     ├── components/
     │   ├── Navbar.jsx
@@ -124,7 +130,10 @@ RazorPayStyle/
     │   ├── Reviews.jsx
     │   └── Footer.jsx
     │
-    └── sections/
+    ├── data/
+    │   └── menuData.js
+    │
+    ├── sections/
         ├── MegaMenu.jsx
         ├── IconScroller.jsx
         ├── FeatureBox.jsx
