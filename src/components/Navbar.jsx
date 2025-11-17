@@ -8,9 +8,9 @@ export default function Navbar() {
 
   const menus = [
     "Payments",
-    "Banking+",
+    "Business Banking",
     "Payroll",
-    "Engage",
+    "Solutions",
     "Partners",
     "Resources",
     "Pricing",

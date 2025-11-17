@@ -48,7 +48,7 @@ export default function Features() {
     {
       id: 4,
       title: "Credit & Loans",
-      subtitle: "RazorpayX Corporate Cards",
+      subtitle: "LaZerPayX Corporate Cards",
       description: "Turn SaaS, cloud and marketing spends into real savings",
       image:
         "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop",

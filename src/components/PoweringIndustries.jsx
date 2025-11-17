@@ -47,9 +47,9 @@ export default function PoweringIndustries() {
     {
       label: "E-Commerce",
       icon: <FaShoppingCart />,
-      title: "Payments for your e-commerce business.",
+      title: "Payments designed for high-growth e-commerce brands.",
       description:
-        "Accept payments online, in-store, or on-the-go. Offer a seamless checkout experience for your customers.",
+        "Deliver a seamless checkout experience, reduce cart drop-offs, and accept payments across every channel—online, in-store, or on-the-go.",
       logos: [
         { src: flipkart, alt: "Flipkart" },
         { src: nykaa, alt: "Nykaa" },
@@ -62,9 +62,9 @@ export default function PoweringIndustries() {
     {
       label: "Education",
       icon: <FaBook />,
-      title: "Payments for your education business.",
+      title: "Smarter payments for schools, institutes, and ed-tech platforms.",
       description:
-        "Effortlessly establish and monitor fee payments and vendor payouts for educational institutions, tutorials, or online courses.",
+        "Manage fee collections, automate payouts, and bring complete transparency to your financial operations—whether offline or digital.",
       logos: [
         { src: niit, alt: "NIIT" },
         { src: toppr, alt: "Toppr" },
@@ -76,9 +76,9 @@ export default function PoweringIndustries() {
     {
       label: "BFSI",
       icon: <FaUniversity />,
-      title: "Payments for your BFSI business.",
+      title: "Secure and compliant payments for financial institutions.",
       description:
-        "Secure and compliant payment solutions for banking, financial services, and insurance.",
+        "Power your banking, lending, wealth, and insurance workflows with reliable, compliant, enterprise-grade payment infrastructure.",
       logos: [
         { src: clearTax, alt: "ClearTax" },
         { src: cred, alt: "CRED" },
@@ -91,9 +91,9 @@ export default function PoweringIndustries() {
     {
       label: "SaaS",
       icon: <FaLaptopCode />,
-      title: "Payments for your SaaS business.",
+      title: "Subscriptions and billing built for global SaaS companies.",
       description:
-        "Automate recurring billing and subscription management. Scale globally.",
+        "Automate recurring billing, reduce churn, and scale globally with multi-currency payments supported in 195+ countries.",
       logos: [
         { src: zoho, alt: "Zoho" },
         { src: shopify, alt: "Shopify" },
@@ -106,14 +106,15 @@ export default function PoweringIndustries() {
     {
       label: "Freelancer",
       icon: <FaUserTie />,
-      title: "Payments for freelancers.",
+      title: "Faster, simpler payments for freelancers and creators.",
       description:
-        "Get paid internationally. Create links, track payouts, and manage all earnings effortlessly.",
+        "Get paid from anywhere in the world, create payment links instantly, and manage all earnings effortlessly from one dashboard.",
       logos: [],
       others: "",
       image: freelancers,
     },
   ];
+
 
   const activeTabData = tabs.find((tab) => tab.label === activeTab);
 
