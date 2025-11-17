@@ -144,8 +144,6 @@ export default function GlobalPaymentsSection() {
           </div>
         </div>
       </div>
-
-      <style jsx>{``}</style>
     </section>
   );
 }
