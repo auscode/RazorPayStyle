@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect, useRef, lazy } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 const IconScroller = lazy(() => import("../sections/IconScroller.jsx"));
 const FeatureBox = lazy(() => import("../sections/FeatureBox.jsx"));
@@ -34,6 +34,7 @@ export default function Hero() {
 
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState("next");
+  const heroRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -54,25 +55,23 @@ export default function Hero() {
   };
 
   useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
     let touchStartX = 0;
     let touchEndX = 0;
 
     const handleTouchStart = (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+      touchStartX = e.touches[0].clientX;
     };
 
     const handleTouchEnd = (e) => {
-      touchEndX = e.changedTouches[0].screenX;
+      touchEndX = e.changedTouches[0].clientX;
 
-      if (touchEndX < touchStartX - 50) {
-        nextSlide(); // swipe left → next
-      }
-      if (touchEndX > touchStartX + 50) {
-        prevSlide(); // swipe right → previous
-      }
+      if (touchEndX < touchStartX - 50) nextSlide(); // swipe → NEXT
+      if (touchEndX > touchStartX + 50) prevSlide(); // swipe → PREV
     };
 
-    const hero = document.getElementById("hero-carousel");
     hero.addEventListener("touchstart", handleTouchStart);
     hero.addEventListener("touchend", handleTouchEnd);
 
@@ -80,16 +79,13 @@ export default function Hero() {
       hero.removeEventListener("touchstart", handleTouchStart);
       hero.removeEventListener("touchend", handleTouchEnd);
     };
-  }, []);
+  }, [index]);
 
   return (
     <>
       <div className="bg-gradient-to-b from-blue-50 via-blue-100 to-white pb-10">
         {/* Hero Section card Carousal Section */}
-        <section
-          className="min-h-[65vh] flex flex-col pb-16"
-          id="hero-carousel"
-        >
+        <section ref={heroRef} className="min-h-[65vh] flex flex-col pb-16">
           <div className="max-w-8xl w-full pt-16 px-6 flex items-center justify-center gap-6 mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-20">
             <button
               onClick={prevSlide}
