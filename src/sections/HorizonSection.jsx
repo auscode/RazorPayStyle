@@ -25,23 +25,95 @@ const HorizonSection = () => {
   }, []);
 
   const fintechItems = [
-    { id: 1, icon: FaGlobe, name: "Global Reach", data: "180+ countries served", angle: 165, radius: 280, color: "bg-blue-500" },
-    { id: 2, icon: FaBolt, name: "Instant Transfer", data: "< 2 second processing", angle: 145, radius: 320, color: "bg-blue-600" },
-    { id: 3, icon: FaDollarSign, name: "Payments", data: "$2.5T processed annually", angle: 125, radius: 360, color: "bg-blue-700" },
-    { id: 4, icon: FaLock, name: "Security", data: "256-bit encryption", angle: 105, radius: 300, color: "bg-blue-500" },
-    { id: 5, icon: FaCreditCard, name: "Digital Banking", data: "150M+ active users", angle: 85, radius: 380, color: "bg-blue-600" },
-    { id: 6, icon: FaMobileAlt, name: "Mobile Wallet", data: "500M+ transactions/day", angle: 65, radius: 340, color: "bg-blue-700" },
-    { id: 7, icon: FaWallet, name: "Digital Wallet", data: "99.9% uptime guaranteed", angle: 45, radius: 310, color: "bg-blue-500" },
-    { id: 8, icon: FaChartLine, name: "Investments", data: "$1.8T AUM", angle: 25, radius: 370, color: "bg-blue-600" },
-    { id: 9, icon: FaShieldAlt, name: "Insurance", data: "95% claim approval rate", angle: 15, radius: 290, color: "bg-blue-700" },
+    {
+      id: 1,
+      icon: FaGlobe,
+      name: "Global Reach",
+      data: "180+ countries served",
+      angle: 165,
+      radius: 280,
+      color: "bg-blue-500",
+    },
+    {
+      id: 2,
+      icon: FaBolt,
+      name: "Instant Transfer",
+      data: "< 2 second processing",
+      angle: 145,
+      radius: 320,
+      color: "bg-blue-600",
+    },
+    {
+      id: 3,
+      icon: FaDollarSign,
+      name: "Payments",
+      data: "$2.5T processed annually",
+      angle: 125,
+      radius: 360,
+      color: "bg-blue-700",
+    },
+    {
+      id: 4,
+      icon: FaLock,
+      name: "Security",
+      data: "256-bit encryption",
+      angle: 105,
+      radius: 300,
+      color: "bg-blue-500",
+    },
+    {
+      id: 5,
+      icon: FaCreditCard,
+      name: "Digital Banking",
+      data: "150M+ active users",
+      angle: 85,
+      radius: 380,
+      color: "bg-blue-600",
+    },
+    {
+      id: 6,
+      icon: FaMobileAlt,
+      name: "Mobile Wallet",
+      data: "500M+ transactions/day",
+      angle: 65,
+      radius: 340,
+      color: "bg-blue-700",
+    },
+    {
+      id: 7,
+      icon: FaWallet,
+      name: "Digital Wallet",
+      data: "99.9% uptime guaranteed",
+      angle: 45,
+      radius: 310,
+      color: "bg-blue-500",
+    },
+    {
+      id: 8,
+      icon: FaChartLine,
+      name: "Investments",
+      data: "$1.8T AUM",
+      angle: 25,
+      radius: 370,
+      color: "bg-blue-600",
+    },
+    {
+      id: 9,
+      icon: FaShieldAlt,
+      name: "Insurance",
+      data: "95% claim approval rate",
+      angle: 15,
+      radius: 290,
+      color: "bg-blue-700",
+    },
   ];
 
   // ✔ Responsive radius calculation
   const getResponsiveRadius = (base) => {
-    if (screenWidth < 480) return base * 0.45;   // Mobile S
-    if (screenWidth < 640) return base * 0.55;   // Mobile M-L
-    if (screenWidth < 768) return base * 0.65;   // Tablets small
-    if (screenWidth < 1024) return base * 0.80;  // Tablets large
+    if (screenWidth < 480) return base * 0.45; // Mobile S
+    if (screenWidth < 640) return base * 0.55; // Mobile M-L
+    if (screenWidth < 768) return base * 0.65; // Tablets small
+    if (screenWidth < 1024) return base * 0.8; // Tablets large
     return base;
   };
 
@@ -57,7 +129,6 @@ const HorizonSection = () => {
   return (
     <div className="w-full bg-gradient-to-b from-white to-blue-50 py-20 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-900">
@@ -70,7 +141,6 @@ const HorizonSection = () => {
 
         {/* ORBIT */}
         <div className="relative w-full h-[350px] sm:h-[450px] md:h-[600px] flex items-end justify-center">
-
           {/* Semi Circles */}
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
             {[1, 2, 3, 4, 5].map((circle) => (
@@ -108,7 +178,9 @@ const HorizonSection = () => {
                   <div
                     className="relative float-animation"
                     style={{
-                      transform: `translate(-50%, 50%) ${isHovered ? "scale(1.22)" : "scale(1)"}`,
+                      transform: `translate(-50%, 50%) ${
+                        isHovered ? "scale(1.22)" : "scale(1)"
+                      }`,
                     }}
                   >
                     {/* Icon */}
@@ -120,9 +192,21 @@ const HorizonSection = () => {
 
                     {/* Tooltip */}
                     {isHovered && (
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-36 sm:w-48 bg-white p-3 rounded-lg border-2 border-blue-500 shadow-xl animate-fadeIn z-10">
-                        <h3 className="font-bold text-blue-900 text-xs sm:text-lg">{item.name}</h3>
-                        <p className="text-blue-600 text-xs sm:text-sm">{item.data}</p>
+                      <div
+                        className="fixed bg-white p-3 rounded-lg border-2 border-blue-500 shadow-xl animate-fadeIn z-[9999] pointer-events-none"
+                        style={{
+                          width: screenWidth < 640 ? "144px" : "192px",
+                          left: "50%",
+                          top: "20%",
+                          transform: "translateX(-50%)",
+                        }}
+                      >
+                        <h3 className="font-bold text-blue-900 text-xs sm:text-lg">
+                          {item.name}
+                        </h3>
+                        <p className="text-blue-600 text-xs sm:text-sm">
+                          {item.data}
+                        </p>
                       </div>
                     )}
                   </div>
