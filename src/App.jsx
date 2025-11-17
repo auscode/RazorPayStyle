@@ -18,18 +18,16 @@ import Loading from "./components/Loading";
 function App() {
   return (
     <>
-      <Suspense fallback={<Loading />}>
-        <Navbar />
-        <Hero />
-        <BankingSection />
-        <Features />
-        <PoweringIndustries />
-        <GlobalPaymentsSection />
-        <Reviews />
-        <ProductHighlights />
-        <HorizonSection />
-        <Footer />
-      </Suspense>
+      <Navbar />
+      <Hero />
+      <BankingSection />
+      <Features />
+      <PoweringIndustries />
+      <GlobalPaymentsSection />
+      <Reviews />
+      <ProductHighlights />
+      <HorizonSection />
+      <Footer />
     </>
   );
 }
