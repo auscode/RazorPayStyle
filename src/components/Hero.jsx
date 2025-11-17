@@ -90,10 +90,10 @@ export default function Hero() {
           className="min-h-[65vh] flex flex-col pb-16"
           id="hero-carousel"
         >
-          <div className="max-w-7xl w-full pt-16 px-6 flex items-center justify-center gap-6 mx-auto mt-20">
+          <div className="max-w-8xl w-full pt-16 px-6 flex items-center justify-center gap-6 mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-20">
             <button
               onClick={prevSlide}
-              className="hidden lg:flex text-3xl shadow-md p-3 rounded-full hover:bg-gray-100 transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="hidden lg:flex text-3xl shadow-md p-3 mr-10 rounded-full hover:bg-gray-100 transition "
               aria-label="Previous slide"
             >
               <HiChevronLeft size={20} />
@@ -144,7 +144,7 @@ export default function Hero() {
 
             <button
               onClick={nextSlide}
-              className="hidden lg:flex text-3xl shadow-md p-3 rounded-full hover:bg-gray-100 transition focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="hidden lg:flex text-3xl shadow-md p-3 rounded-full hover:bg-gray-100 transition "
               aria-label="Next slide"
             >
               <HiChevronRight size={20} />
