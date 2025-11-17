@@ -85,7 +85,7 @@ export default function Reviews() {
           <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             LaZerPay grows with <span className="text-blue-500">you!</span>
           </h2>
-          <p className="text-xl text-gray-600">1,50,000+ Businesses</p>
+          <p className="text-sm font-medium  text-gray-600">1,50,000+ Businesses</p>
         </div>
       </div>
       <div ref={containerRef} className="overflow-hidden py-4">
@@ -118,10 +118,10 @@ export default function Reviews() {
                     </div>
                   </div>
                   <div className="flip-back shadow-lg flex flex-col">
-                    <p className="text-center text-sm p-4">
+                    <p className="text-center text-sm md:text-lg lg:text-2xl font-bold p-4">
                       {review.description}
                     </p>
-                    <p className="font-bold text-xl mb-1">{review.name}</p>
+                    <p className="font-bold text-xl mt-5">{review.name}</p>
                     <p className="text-sm">{review.role}</p>
                   </div>
                 </div>
